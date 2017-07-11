@@ -1,10 +1,6 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-}
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -21,4 +17,43 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.modal-dialog {
+    width:600px;
+}
+.thumbnail {
+    margin-bottom: 15px;
+}
+
+#addPhoto {
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+}
+
+#deletePhoto {
+    width: 100px;
+    height: 50px;
+}
+
+.photoContainer div {
+    /*margin-right: 100%;*/
+}
+
+h2 {
+    margin-left: 40%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.viewOptions {
+    margin-top: 50px;
+    float: right;
+}
+
+.viewOptions button{
+    width: 100px;
+    height: 50px;
+    margin: 10px;
 }
