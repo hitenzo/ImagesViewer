@@ -27,14 +27,14 @@ textarea {
 }
 
 #addPhoto {
-    width: 100px;
-    height: 50px;
+    width: 90px;
+    height: 40px;
     margin: 10px;
 }
 
 #deletePhoto {
-    width: 100px;
-    height: 50px;
+    width: 90px;
+    height: 40px;
 }
 
 .photoContainer div {
@@ -53,7 +53,7 @@ h2 {
 }
 
 .viewOptions button{
-    width: 100px;
-    height: 50px;
+    width: 90px;
+    height: 40px;
     margin: 10px;
 }
