@@ -15,5 +15,11 @@ namespace ImagesViewer.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public void UploadFile()
+        {
+            int s = 3;
+        }
     }
 }

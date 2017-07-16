@@ -7,25 +7,37 @@
         <button id="tableView" class="btn btn-default"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Table</button>
         <button id="listView" class="btn btn-default"><span class="glyphicon glyphicon-th-list" aria-hidden="true"> List</span></button>
     </div>
-    <div class="row photoContainer">
+    <div class="row galleryContainer">
         <h2>Selected images</h2>
-        <div class="col-lg-12 col-sm-12 col-xs-12">
-            <button id="addPhoto" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button>
-            <button id="deletePhoto" class="btn btn-default"><span class="glyphicon glyphicon-minus" aria-hidden="true"> Delete</span></button>
-            <hr/>
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-xs-4">
+                <label id="addPhoto" class="btn btn-default" for="addFile">
+                    <input id="addFile" type="file" style="display:none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+                </label>
+                
+                <label id="deletePhoto" class="btn btn-default" for="deleteFile">
+                    <input id="deleteFile" type="file" style="display:none;">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Delete
+                </label>
+                
+            </div>
+
         </div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 1" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 2" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 3" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 4" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 5" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 6" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 8" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 9" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 10" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 11" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 12" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 13" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+        <div class="row photosContainer">
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 1" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 2" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 3" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 4" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 5" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 6" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 8" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 9" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 10" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 11" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 12" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+            <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 13" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
+        </div>         
         <hr>
         <hr>
     </div>

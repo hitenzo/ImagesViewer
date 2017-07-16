@@ -7,7 +7,7 @@ using ImagesViewer.Models.Database;
 
 namespace ImagesViewer.Models.Repositories
 {
-    public class ImagesRepository : IRepository<ImageInfo>
+    public class ImagesRepository : IImagesRepository
     {
         private readonly ImageInfoContext context;
 
