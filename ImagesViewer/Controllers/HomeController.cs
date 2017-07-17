@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ImagesViewer.Models;
-using ImagesViewer.Models.Database;
-using ImagesViewer.Models.Repositories;
 
 namespace ImagesViewer.Controllers
 {
@@ -13,13 +10,9 @@ namespace ImagesViewer.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
+            ViewBag.Title = "Home Page";
 
-        [HttpPost]
-        public void UploadFile()
-        {
-            int s = 3;
+            return View();
         }
     }
 }

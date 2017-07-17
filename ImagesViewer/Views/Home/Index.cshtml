@@ -10,17 +10,13 @@
     <div class="row galleryContainer">
         <h2>Selected images</h2>
         <div class="row">
-            <div class="col-lg-4 col-sm-4 col-xs-4">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
                 <label id="addPhoto" class="btn btn-default" for="addFile">
                     <input id="addFile" type="file" style="display:none;">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
                 </label>
-                
-                <label id="deletePhoto" class="btn btn-default" for="deleteFile">
-                    <input id="deleteFile" type="file" style="display:none;">
-                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Delete
-                </label>
-                
+                <hr />
+
             </div>
 
         </div>
@@ -37,8 +33,7 @@
             <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 11" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
             <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 12" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
             <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 13" href="#"><img class="thumbnail img-responsive" src="~/fonts/photo.jpg"></a></div>
-        </div>         
-        <hr>
+        </div>
         <hr>
     </div>
 </div>
@@ -53,6 +48,8 @@
 
             </div>
             <div class="modal-footer">
+
+                <button id="deletePhoto" class="btn btn-default"><span class="glyphicon glyphicon-minus" aria-hidden="true"> Delete</span></button>
                 <button class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>

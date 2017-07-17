@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Web.Http;
 using ImagesViewer.Models.Services;
 
@@ -23,8 +25,9 @@ namespace ImagesViewer.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult AddImage()
+        public IHttpActionResult AddImages()
         {
+            var stream = Request.Content.ReadAsStreamAsync();
             return Ok();
         }
 

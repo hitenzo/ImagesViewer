@@ -22,12 +22,12 @@ namespace ImagesViewer.Models.Services
 
         public void AddImage(ImageInfo image)
         {
-            
+
         }
 
         public void DeleteImage(int id)
         {
-            
+
         }
     }
 }
