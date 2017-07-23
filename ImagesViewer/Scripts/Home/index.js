@@ -9,12 +9,12 @@
     $('#tableView').click(showAsTable);
     //$('#addPhoto').click(addPhoto);
     //$('#deletePhoto').click(deletePhoto);
+
 });
 
 
 var addPhoto = function (e) {
     var files = e.target.files;
-    var myID = 3; //uncomment this to make sure the ajax URL works
     if (files.length > 0) {
         if (window.FormData !== undefined) {
             var data = new FormData();
@@ -25,12 +25,10 @@ var addPhoto = function (e) {
             $.ajax({
                 type: 'POST',
                 url: '/api/Images/AddImages',
-                //contentType: 'application/json; charset=utf-8',
-                contentType: false,
-                processData: false,
-                data: data,
+                data: JSON.stringify(data),
+                contentType: 'application/json; charset=utf-8',
                 success: function (result) {
-                    console.log(result);
+                    console.log('yes!');
                 },
                 error: function (xhr, status, p3, p4) {
                     var err = "Error " + " " + status + " " + p3 + " " + p4;
@@ -39,6 +37,8 @@ var addPhoto = function (e) {
                     console.log(err);
                 }
             });
+
+
         } else {
             alert("This browser doesn't support HTML5 file uploads!");
         }

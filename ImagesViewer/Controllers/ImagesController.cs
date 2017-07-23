@@ -27,7 +27,7 @@ namespace ImagesViewer.Controllers
         [HttpPost]
         public IHttpActionResult AddImages()
         {
-            var stream = Request.Content.ReadAsStreamAsync();
+            var contentFile = Request.Content.ReadAsByteArrayAsync();
             return Ok();
         }
 
