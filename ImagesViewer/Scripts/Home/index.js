@@ -18,15 +18,23 @@ var addPhoto = function (e) {
     if (files.length > 0) {
         if (window.FormData !== undefined) {
             var data = new FormData();
+            //var file = $('input[type=file]')[0].files[0];
+            //data.append('file', file);
             for (var x = 0; x < files.length; x++) {
                 data.append("file" + x, files[x]);
             }
-
+            console.log(data);
             $.ajax({
                 type: 'POST',
                 url: '/api/Images/AddImages',
-                data: JSON.stringify(data),
-                contentType: 'application/json; charset=utf-8',
+                data: data, //JSON.stringify(data),
+                //headers: {
+                //    Accept: 'application/json',
+                //    ContentType: 'application/json'
+                //},
+                //contentType: 'application/json; charset=utf-8',
+                contentType: false,
+                processData: false,
                 success: function (result) {
                     console.log('yes!');
                 },
