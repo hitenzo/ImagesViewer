@@ -36,14 +36,6 @@ namespace ImagesViewer.Controllers
             //string result = Encoding.UTF8.GetString(textBytes);
             //File.WriteAllText(@"C:\Users\hitenz\Desktop\WriteText.txt", result);
 
-
-            //var request = HttpContext.Current.Request;
-            //var filePath = @"C:\Users\hitenz\Desktop\WriteText.txt";
-            //using (var fs = new FileStream(filePath, FileMode.Create))
-            //{
-            //    request.InputStream.CopyTo(fs);
-            //}
-
             if (!Request.Content.IsMimeMultipartContent())
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
 
@@ -51,9 +43,7 @@ namespace ImagesViewer.Controllers
             await Request.Content.ReadAsMultipartAsync(provider);
             foreach (var file in provider.Contents)
             {
-                var filename = file.Headers.ContentDisposition.FileName.Trim('\"');
                 var buffer = await file.ReadAsByteArrayAsync();
-                //Do whatever you want with filename and its binaray data.
             }
 
             return Ok();

@@ -1,6 +1,8 @@
 ﻿$(document).ready(function () {
     selectPhotoListener();
     //addPhotoListener();
+
+    //$('#addFile').on('change', addPhoto(e));
     $('#addFile').on('change',
         function (e) {
             addPhoto(e);
@@ -14,29 +16,23 @@
 
 
 var addPhoto = function (e) {
-    var files = e.target.files;
+    //var files = e.target.files;
+    //var files = $('input[type=file]')[0].files;
+    var files = $('#addFile')[0].files;
     if (files.length > 0) {
         if (window.FormData !== undefined) {
             var data = new FormData();
-            //var file = $('input[type=file]')[0].files[0];
-            //data.append('file', file);
             for (var x = 0; x < files.length; x++) {
                 data.append("file" + x, files[x]);
             }
-            console.log(data);
             $.ajax({
                 type: 'POST',
-                url: '/api/Images/AddImages',
-                data: data, //JSON.stringify(data),
-                //headers: {
-                //    Accept: 'application/json',
-                //    ContentType: 'application/json'
-                //},
-                //contentType: 'application/json; charset=utf-8',
+                url: '/api/Recognition/RegonizeImage', //  '/api/Images/AddImages'
+                data: data,
                 contentType: false,
                 processData: false,
                 success: function (result) {
-                    console.log('yes!');
+                    console.log('tags: ' + result);
                 },
                 error: function (xhr, status, p3, p4) {
                     var err = "Error " + " " + status + " " + p3 + " " + p4;
@@ -87,40 +83,9 @@ var getAllPhotos = function () {
     });
 }
 
-//var addPhotoListener = function () {
-//    $('#addFile').on('change', function (e) {
-//        alert('ok');
-//        var files = e.target.files;
-//        var myID = 3; //uncomment this to make sure the ajax URL works
-//        if (files.length > 0) {
-//            if (window.FormData !== undefined) {
-//                var data = new FormData();
-//                for (var x = 0; x < files.length; x++) {
-//                    data.append("file" + x, files[x]);
-//                }
+var addPhotoListener = function () {
 
-//                $.ajax({
-//                    type: "POST",
-//                    url: '/ImagesController/AddImages?id=' + myID,
-//                    contentType: false,
-//                    processData: false,
-//                    data: data,
-//                    success: function (result) {
-//                        console.log(result);
-//                    },
-//                    error: function (xhr, status, p3, p4) {
-//                        var err = "Error " + " " + status + " " + p3 + " " + p4;
-//                        if (xhr.responseText && xhr.responseText[0] == "{")
-//                            err = JSON.parse(xhr.responseText).Message;
-//                        console.log(err);
-//                    }
-//                });
-//            } else {
-//                alert("This browser doesn't support HTML5 file uploads!");
-//            }
-//        }
-//    });
-//}
+}
 
 var deletePhoto = function () {
 
