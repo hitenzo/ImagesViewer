@@ -20,9 +20,19 @@ namespace ImagesViewer.Models.Services
             return repository.GetAll();
         }
 
-        public void AddImage(ImageInfo image)
+        public void AddImages(List<string> imagesInfo)
         {
-
+            foreach (var img in imagesInfo)
+            {
+                var separator = img.IndexOf(":");
+                var name = img.Substring(0, separator);
+                var tags = img.Substring(separator + 1).Trim();
+                //repository.Add(new ImageInfo()
+                //{
+                //    Title = name,
+                //    Description = tags
+                //});
+            }
         }
 
         public void DeleteImage(int id)

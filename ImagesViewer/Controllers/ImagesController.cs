@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
 using ImagesViewer.Models.Services;
 
 namespace ImagesViewer.Controllers
@@ -28,28 +27,16 @@ namespace ImagesViewer.Controllers
             return Ok();
         }
 
-        [System.Web.Http.HttpPost]
-        public async Task<IHttpActionResult> AddImages()
+        [HttpPost]
+        public IHttpActionResult AddImages(List<string> tags)
         {
-            //var contentFile = Request.Content.ReadAsByteArrayAsync();
-            //var textBytes = contentFile.Result;
-            //string result = Encoding.UTF8.GetString(textBytes);
-            //File.WriteAllText(@"C:\Users\hitenz\Desktop\WriteText.txt", result);
-
-            if (!Request.Content.IsMimeMultipartContent())
-                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
-
-            var provider = new MultipartMemoryStreamProvider();
-            await Request.Content.ReadAsMultipartAsync(provider);
-            foreach (var file in provider.Contents)
-            {
-                var buffer = await file.ReadAsByteArrayAsync();
-            }
+            var x = tags;
+            
 
             return Ok();
         }
 
-        [System.Web.Http.HttpPost]
+        [HttpPost]
         public IHttpActionResult DeleteImage()
         {
             return Ok();

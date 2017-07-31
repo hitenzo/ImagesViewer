@@ -27,10 +27,11 @@ namespace ImagesViewer.Controllers
 
             var provider = new MultipartMemoryStreamProvider();
             await Request.Content.ReadAsMultipartAsync(provider);
-            var labels = "";
+            //var labels = new string[5];
+            var labels = new List<string>();
             foreach (var file in provider.Contents)
             {
-                labels = service.GetLabels(file);
+                labels.Add(service.GetLabels(file));
             }
 
             return Ok(labels);

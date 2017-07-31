@@ -85,15 +85,20 @@ namespace ImagesViewer.Models.Services
             return null;
         }
 
+        //TODO: change method to recive list of httpContent 
         public string GetLabels(HttpContent content)
         {
             var credentails = CreateCredentials(apiKeyPath);
             var service = CreateService(appName, credentails);
 
+            var name = content.Headers.ContentDisposition.FileName;
+            name = name.Remove(name.Length - 1, 1).Remove(0, 1);
+
             var task = Annotate(service, content, new string[] { "LABEL_DETECTION" });
-            var keywords = task?.LabelAnnotations?.Select(s => s.Description).ToArray();
-            var words = String.Join(", ", keywords);
-            return words;
+            var tags = task?.LabelAnnotations?.Select(s => s.Description).ToArray();
+            var labels = String.Join(", ", tags);
+            labels = name + ": " + labels;
+            return labels;
         }
     }
 }
