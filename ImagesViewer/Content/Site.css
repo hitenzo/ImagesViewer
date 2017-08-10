@@ -47,6 +47,11 @@ h2 {
     margin-bottom: 40px;
 }
 
+.imgFormat {
+    width: 250px;
+    height: 150px;
+}
+
 .viewOptions {
     margin-top: 50px;
     float: right;

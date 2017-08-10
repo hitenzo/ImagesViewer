@@ -72,7 +72,6 @@ C:\projects\ImagesViewer\ImagesViewer\bin\Microsoft.Practices.Unity.xml
 C:\projects\ImagesViewer\ImagesViewer\bin\Microsoft.Practices.Unity.Configuration.xml
 C:\projects\ImagesViewer\ImagesViewer\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
 C:\projects\ImagesViewer\ImagesViewer\bin\Microsoft.Practices.Unity.WebApi.xml
-C:\projects\ImagesViewer\ImagesViewer\obj\Debug\ImagesViewer.csprojResolveAssemblyReference.cache
 C:\projects\ImagesViewer\ImagesViewer\bin\Google.Apis.Auth.dll
 C:\projects\ImagesViewer\ImagesViewer\bin\Google.Apis.Auth.PlatformServices.dll
 C:\projects\ImagesViewer\ImagesViewer\bin\Google.Apis.Core.dll
@@ -83,3 +82,4 @@ C:\projects\ImagesViewer\ImagesViewer\bin\Google.Apis.xml
 C:\projects\ImagesViewer\ImagesViewer\bin\Google.Apis.Auth.xml
 C:\projects\ImagesViewer\ImagesViewer\bin\Google.Apis.Core.xml
 C:\projects\ImagesViewer\ImagesViewer\bin\Google.Apis.Vision.v1.xml
+C:\projects\ImagesViewer\ImagesViewer\obj\Debug\ImagesViewer.csprojResolveAssemblyReference.cache

@@ -29,16 +29,14 @@ namespace ImagesViewer.Models.Repositories
         public void Add(ImageInfo item)
         {
             context.Images.Add(item);
+            SaveChanges();
         }
 
-        public void Remove(ImageInfo item)
+        public void Remove(int id)
         {
+            var item = GetById(id);
             context.Images.Remove(item);
-        }
-
-        public void Update(ImageInfo item)
-        {
-            context.Entry(item).State = EntityState.Modified;
+            SaveChanges();
         }
 
         public void SaveChanges()

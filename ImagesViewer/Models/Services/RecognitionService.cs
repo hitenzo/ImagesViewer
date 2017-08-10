@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using Google.Apis.Auth.OAuth2;
@@ -86,7 +87,7 @@ namespace ImagesViewer.Models.Services
         }
 
         //TODO: change method to recive list of httpContent 
-        public string GetLabels(HttpContent content)
+        public Tuple<byte[], string, string> GetLabels(HttpContent content)
         {
             var credentails = CreateCredentials(apiKeyPath);
             var service = CreateService(appName, credentails);
@@ -97,8 +98,10 @@ namespace ImagesViewer.Models.Services
             var task = Annotate(service, content, new string[] { "LABEL_DETECTION" });
             var tags = task?.LabelAnnotations?.Select(s => s.Description).ToArray();
             var labels = String.Join(", ", tags);
-            labels = name + ": " + labels;
-            return labels;
+
+            var bytes = content.ReadAsByteArrayAsync().Result;
+            return new Tuple<byte[], string, string>(bytes, name, labels);
         }
+
     }
 }

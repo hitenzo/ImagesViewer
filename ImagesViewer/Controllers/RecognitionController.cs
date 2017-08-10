@@ -20,21 +20,21 @@ namespace ImagesViewer.Controllers
 
 
         [HttpPost]
-        public async Task<IHttpActionResult> RegonizeImage()
+        public IHttpActionResult RegonizeImage()
         {
-            if (!Request.Content.IsMimeMultipartContent())
-                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            //if (!Request.Content.IsMimeMultipartContent())
+            //    throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
 
-            var provider = new MultipartMemoryStreamProvider();
-            await Request.Content.ReadAsMultipartAsync(provider);
-            //var labels = new string[5];
-            var labels = new List<string>();
-            foreach (var file in provider.Contents)
-            {
-                labels.Add(service.GetLabels(file));
-            }
+            //var provider = new MultipartMemoryStreamProvider();
+            //await Request.Content.ReadAsMultipartAsync(provider);
+            //var labels = new List<string>();
+            //foreach (var file in provider.Contents)
+            //{
+            //    labels.Add(service.GetLabels(file));
+            //}
 
-            return Ok(labels);
+            //return Ok(labels);
+            return Ok();
         }
     }
 }

@@ -1,80 +1,23 @@
 ﻿$(document).ready(function () {
-    selectPhotoListener();
-    //addPhotoListener();
-
-    //$('#addFile').on('change', addPhoto(e));
+    loadImages();
     $('#addFile').on('change',
         function (e) {
-            recognizeImage(e);
-        });
+            addImages(e);
+    });
     $('#listView').click(showAsList);
     $('#tableView').click(showAsTable);
-    //$('#addPhoto').click(addPhoto);
-    //$('#deletePhoto').click(deletePhoto);
-
+    $('#deletePhoto').click(deletePhoto);
 });
 
-
-var recognizeImage = function (e) {
-    var files = $('#addFile')[0].files;
-    if (files.length > 0 && window.FormData !== undefined) {
-        var data = new FormData();
-        //var data;
-        for (var x = 0; x < files.length; x++) {
-            data.append("file" + x, files[x]);
-            //data = new FormData();
-            //data.append("file" + x, files[x]);
-            //$.ajax({
-            //    type: 'POST',
-            //    url: '/api/Recognition/RegonizeImage',
-            //    data: data,
-            //    contentType: false,
-            //    processData: false,
-            //    success: function (result) {
-            //        addImage(result);
-            //        console.log('tags: ' + result + ' type: ' + jQuery.type(result));
-            //    },
-            //    error: function (xhr, status, p3, p4) {
-            //        var err = "Error " + " " + status + " " + p3 + " " + p4;
-            //        if (xhr.responseText && xhr.responseText[0] == "{")
-            //            err = JSON.parse(xhr.responseText).Message;
-            //        console.log(err);
-            //    }
-            //});
-        }
-
-        $.ajax({
-            type: 'POST',
-            url: '/api/Recognition/RegonizeImage',
-            data: data,
-            contentType: false,
-            processData: false,
-            success: function (result) {
-                addImage(result);
-                console.log('tags: ' + result + ' type: ' + jQuery.type(result));
-                console.log('tags1: ' + result[0] + ' type: ' + jQuery.type(result[0]));
-                console.log('tags2: ' + result[1] + ' type: ' + jQuery.type(result[1]));
-            },
-            error: function (xhr, status, p3, p4) {
-                var err = "Error " + " " + status + " " + p3 + " " + p4;
-                if (xhr.responseText && xhr.responseText[0] == "{")
-                    err = JSON.parse(xhr.responseText).Message;
-                console.log(err);
-            }
-        });
-    } else {
-        alert("This browser doesn't support HTML5 file uploads!");
-    }
-}
-
-var addImage = function (tags) {
+var loadImages = function () {
+    $('.photosContainer').html("");
     $.ajax({
-        type: 'POST',
-        url: '/api/Images/AddImages',
-        data: JSON.stringify(tags),
-        contentType: "application/json; charset=utf-8",
+        type: 'GET',
+        url: '/api/Images/GetAllImages',
+        contentType: 'application/json; charset=utf-8',
         success: function (result) {
-
+            drawImages(result);
+            selectPhotoListener();
         },
         error: function (xhr, status, p3, p4) {
             var err = "Error " + " " + status + " " + p3 + " " + p4;
@@ -85,6 +28,44 @@ var addImage = function (tags) {
     });
 }
 
+var drawImages = function (result) {
+    for (var i = 0; i < result.length; i++) {
+        $('.photosContainer').append(
+            '<div class="col-lg-3 col-sm-4 col-xs-6">' +
+            '<a title="' + result[i].id + '">' +
+            '<img class="thumbnail img-responsive imgFormat" src="data:image/jpg;base64,' + result[i].bytes + '" /></a></div>');
+    }
+}
+
+
+var addImages = function(e) {
+    var files = $('#addFile')[0].files;
+        if (files.length > 0 && window.FormData !== undefined) {
+            var data = new FormData();
+            for (var x = 0; x < files.length; x++) {
+                data.append("file" + x, files[x]);
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/api/Images/AddImages',
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    loadImages();
+                },
+                error: function (xhr, status, p3, p4) {
+                    var err = "Error " + " " + status + " " + p3 + " " + p4;
+                    if (xhr.responseText && xhr.responseText[0] == "{")
+                        err = JSON.parse(xhr.responseText).Message;
+                    console.log(err);
+                }
+            });
+        } else {
+            alert("This browser doesn't support HTML5 file uploads!");
+        }
+}
 
 
 var selectPhotoListener = function () {
@@ -105,28 +86,22 @@ var showAsTable = function () {
     $('.photosContainer div').css('margin-right', '0%');
 }
 
-var getAllPhotos = function () {
+var deletePhoto = function () {
+    var title = $('.modal-title').html();
+    var data = JSON.stringify(title);
     $.ajax({
-        type: 'GET',
-        url: 'http://localhost:53148/api/Images/GetAllImages',
+        type: 'POST',
+        url: '/api/Images/DeleteImage',
+        data: data,
         contentType: 'application/json; charset=utf-8',
-        success: function (response) {
-            // render all images
+        success: function () {
+            loadImages();
         },
-        error: function (xhr, status, error) {
-            console.log(error.message);
+        error: function (xhr, status, p3, p4) {
+            var err = "Error " + " " + status + " " + p3 + " " + p4;
+            if (xhr.responseText && xhr.responseText[0] == "{")
+                err = JSON.parse(xhr.responseText).Message;
+            console.log(err);
         }
     });
-}
-
-var addPhotoListener = function () {
-
-}
-
-var deletePhoto = function () {
-
-}
-
-var renderPhotos = function () {
-
 }
